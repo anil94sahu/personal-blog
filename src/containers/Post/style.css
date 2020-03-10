@@ -1,0 +1,12 @@
+.blogpost{
+    width: 75%;
+}
+
+.sidebar{
+    width: 25%;
+}
+
+
+.container{
+    display: flex;
+}
