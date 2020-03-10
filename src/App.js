@@ -18,7 +18,7 @@ function App() {
       <Route path="/" exact component={Home} />
       <Route path="/contact-us" component={ContactUs} />
       <br />
-      <Route path="/post/:postid" component={Post} />
+      <Route path="/post/:slug" component={Post} />
     </div>
     </Router>
   );

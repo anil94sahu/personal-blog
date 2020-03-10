@@ -5,6 +5,7 @@ import { Sidebar } from '../../components/Sidebar';
 import Card from '../../components/UI/Card';
 import { RecentPosts } from './RecentPosts';
 import blogData from '../../data/blog.json';
+import { Layout } from '../../components/Layout';
 
 
 const SideImage = props => {
@@ -17,18 +18,22 @@ const SideImage = props => {
 
 const ImageGallery = props => (
     <div className = "gallaryPost" style = {props.gallaryStyle}>
-                <section style = {{width:'70%'}}>
+                <section style = {{width:props.largeWidth}}>
                     <div className="mainImageWrapper">
-                        <img src={require('../../blogPostImages/' + props.imagesArray[0]) } alt=""/>
+                        <img src={require('../../blogPostImages/' + props.imagesArray[1]) } alt=""/>
                     </div>
                 </section>
-                <section className ="sideImageWrapper" style = {{width:'30%'}}>
-                    <SideImage
+                <section className ="sideImageWrapper" style = {{width:props.smallWidth}}>
+                   {
+                       props.imagesArray.map(image => 
+                        <SideImage
                         height={props.sideImageHeight}
-                        src={require('../../blogPostImages/' + props.imagesArray[1]) }
-                        alt = ""
-                   / >
-                    <SideImage
+                        src={require('../../blogPostImages/' + image) }
+                        alt = "" / >
+                       )
+                   }
+                   
+                   {/*  <SideImage
                         height={props.sideImageHeight}
                         src={require('../../blogPostImages/' + props.imagesArray[2]) }
                         alt = ""
@@ -37,7 +42,7 @@ const ImageGallery = props => (
                         height={props.sideImageHeight}
                         src={require('../../blogPostImages/' + props.imagesArray[3]) }
                         alt = ""
-                   / >
+                   / > */}
                 </section>
     </div>
 )
@@ -64,11 +69,9 @@ const Home = props => {
                </ImageGallery> 
             </Card>
 
-        <section className = "HomeContainer">
-            <RecentPosts style = {{width:'70%'}}/>
-
-            <Sidebar />
-        </section>
+            <Layout >
+                <RecentPosts style = {{width:'70%'}}/>
+            </Layout>
            
         </div>
     )

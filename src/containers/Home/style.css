@@ -19,9 +19,5 @@ section div img{
     height: 100%;
 }
 
-.HomeContainer{
-    display:flex;
-    justify-content:space-between;
-    margin: 20px 0;
-}
+
 

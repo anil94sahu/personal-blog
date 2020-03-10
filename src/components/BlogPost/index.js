@@ -14,14 +14,14 @@ export const BlogPost = (props) => {
     blogImage: "",
     blogText: "",
   });
-  const [postId, setPostId] = useState("");
+  const [slug, setSlug] = useState("");
   
   useEffect(() => {
-    const postId = parseInt(props.match.params.postid, 10);
-    const post = blogPost.data.find(post => post.id === postId);
+    const slug = props.match.params.slug;
+    const post = blogPost.data.find(post => post.slug === slug);
     setPost(post);
-    setPostId(postId);
-  }, [post, props.match.params.postid]);
+    setSlug(slug);
+  }, [post, props.match.params.slug]);
 
   if(post.blogImage === "")return null;
     return (
